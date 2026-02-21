@@ -1,0 +1,125 @@
+# OpenPAVE Exa Skill
+# AI-powered web search using Exa.ai neural search
+
+name: exa
+version: 1.0.0
+description: AI-powered web search using Exa.ai neural search. Search people, companies, news, research papers, GitHub repos, tweets, and more.
+
+# Execution pattern
+pattern: sandbox
+entrypoint: index.js
+
+# Available commands
+commands:
+  - name: search
+    description: General web search using neural search
+    args:
+      - <query>
+    options:
+      - --num <number>
+      - --type <type>
+      - --domains <domains>
+      - --exclude <domains>
+      - --from <date>
+      - --to <date>
+      - --json
+      - --summary
+
+  - name: people
+    description: Search for people on LinkedIn
+    args:
+      - <query>
+    options:
+      - --num <number>
+      - --json
+      - --summary
+
+  - name: company
+    description: Search for companies
+    args:
+      - <query>
+    options:
+      - --num <number>
+      - --json
+      - --summary
+
+  - name: news
+    description: Search for news articles
+    args:
+      - <query>
+    options:
+      - --num <number>
+      - --from <date>
+      - --to <date>
+      - --json
+      - --summary
+
+  - name: research
+    description: Search for research papers
+    args:
+      - <query>
+    options:
+      - --num <number>
+      - --json
+      - --summary
+
+  - name: github
+    description: Search GitHub repositories
+    args:
+      - <query>
+    options:
+      - --num <number>
+      - --json
+      - --summary
+
+  - name: tweets
+    description: Search tweets
+    args:
+      - <query>
+    options:
+      - --num <number>
+      - --from <date>
+      - --to <date>
+      - --json
+      - --summary
+
+  - name: similar
+    description: Find similar links to a given URL
+    args:
+      - <url>
+    options:
+      - --num <number>
+      - --json
+      - --summary
+
+  - name: answer
+    description: Ask a question and get an AI-generated answer with sources
+    args:
+      - <question>
+    options:
+      - --json
+
+# Token configuration for secure sandbox access
+tokens:
+  exa:
+    type: api_key
+    description: Exa.ai API key for neural search
+    domains:
+      - api.exa.ai
+    env:
+      required:
+        - EXA_API_KEY
+    config:
+      env: EXA_API_KEY
+      type: api_key
+      domains:
+        - api.exa.ai
+      placement:
+        type: header
+        name: x-api-key
+        format: "{token}"
+
+# Sandbox permissions
+permissions:
+  network:
+    - api.exa.ai
