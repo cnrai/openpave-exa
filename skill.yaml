@@ -2,7 +2,7 @@
 # AI-powered web search using Exa.ai neural search
 
 name: exa
-version: 1.0.0
+version: 1.1.0
 description: AI-powered web search using Exa.ai neural search. Search people, companies, news, research papers, GitHub repos, tweets, and more.
 
 # Execution pattern
@@ -22,7 +22,6 @@ commands:
       - --exclude <domains>
       - --from <date>
       - --to <date>
-      - --json
       - --summary
 
   - name: people
@@ -31,7 +30,6 @@ commands:
       - <query>
     options:
       - --num <number>
-      - --json
       - --summary
 
   - name: company
@@ -40,7 +38,6 @@ commands:
       - <query>
     options:
       - --num <number>
-      - --json
       - --summary
 
   - name: news
@@ -51,7 +48,6 @@ commands:
       - --num <number>
       - --from <date>
       - --to <date>
-      - --json
       - --summary
 
   - name: research
@@ -60,7 +56,6 @@ commands:
       - <query>
     options:
       - --num <number>
-      - --json
       - --summary
 
   - name: github
@@ -69,7 +64,6 @@ commands:
       - <query>
     options:
       - --num <number>
-      - --json
       - --summary
 
   - name: tweets
@@ -80,7 +74,6 @@ commands:
       - --num <number>
       - --from <date>
       - --to <date>
-      - --json
       - --summary
 
   - name: similar
@@ -89,7 +82,6 @@ commands:
       - <url>
     options:
       - --num <number>
-      - --json
       - --summary
 
   - name: answer
@@ -97,7 +89,7 @@ commands:
     args:
       - <question>
     options:
-      - --json
+      - --summary
 
 # Token configuration for secure sandbox access
 tokens:
@@ -119,6 +111,8 @@ tokens:
         name: x-api-key
         format: "{token}"
 
+category: search
+icon: "\U0001F50D"
 # Sandbox permissions
 permissions:
   network:
