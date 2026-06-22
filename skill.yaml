@@ -5,6 +5,14 @@ name: exa
 version: 1.1.0
 description: AI-powered web search using Exa.ai neural search. Search people, companies, news, research papers, GitHub repos, tweets, and more.
 
+author:
+  name: cnrai
+  url: https://github.com/cnrai
+
+license: MIT
+homepage: https://github.com/cnrai/openpave-exa
+repository: cnrai/openpave-exa
+
 # Execution pattern
 pattern: sandbox
 entrypoint: index.js
