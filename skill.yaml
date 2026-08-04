@@ -2,7 +2,7 @@
 # AI-powered web search using Exa.ai neural search
 
 name: exa
-version: 1.1.0
+version: 1.1.1
 description: AI-powered web search using Exa.ai neural search. Search people, companies, news, research papers, GitHub repos, tweets, and more.
 
 author:
@@ -16,6 +16,35 @@ repository: cnrai/openpave-exa
 # Execution pattern
 pattern: sandbox
 entrypoint: index.js
+
+usage_notes: |
+  IMPORTANT FOR AI AGENTS:
+  
+  Search Strategy:
+  - Use `people` for finding specific decision-makers on LinkedIn
+  - Use `company` for finding target companies and their profiles
+  - Use `search` for general web content and neural/hybrid search
+  - Use `news` for time-bound articles and market signals
+  - Use `research` for academic papers and technical content
+  - Use `answer` when you need a synthesized answer with sources
+  
+  Best Practices:
+  - Be specific in queries — "CTO healthcare startups Hong Kong" > "tech executives"
+  - Use --from/--to for time-sensitive research (news, market signals)
+  - Use --domains to constrain results to specific sources
+  - Use --num to control result count (default is usually 10)
+  - Combine `people` + `company` searches for comprehensive prospect research
+  - Use `similar` to find competitors or alternatives from a known URL
+  
+  GTM Research Workflow:
+  1. Company search → identify target companies
+  2. People search → find decision-makers at those companies
+  3. News search → recent signals (funding, expansion, leadership changes)
+  4. Answer → synthesize findings into actionable insights
+# Sandbox permissions
+permissions:
+  network:
+    - api.exa.ai
 
 # Available commands
 commands:
